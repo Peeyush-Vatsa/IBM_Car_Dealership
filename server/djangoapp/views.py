@@ -54,6 +54,7 @@ def registration_request(request):
         last_name = request.POST['last_name']
         email = request.POST['email']
         password = request.POST['password']
+        user_exist = False
         try:
             User.objects.get(username=username)
             user_exist = True
