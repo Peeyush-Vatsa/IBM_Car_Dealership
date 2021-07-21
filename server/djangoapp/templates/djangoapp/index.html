@@ -16,36 +16,65 @@
 
     <body>
     <!--Add a nav bar here -->
-        <nav class="navbar bg-light">
-            <a href="#" class="navbar-logo bg-light"><h3>Best Cars Dealership</h3></a>
-            <div class="navbar-nav">
-                <div class="nav-item">
-                    <a class="nav-link bg-light" href="{% url 'djangoapp:about_us'%}">About Us</a><!--Add the url-->
-                    </div>
-                </div>
-                <div class="nav-item">
-                    <a class="nav-link bg-light" href="{% url 'djangoapp:contact_us'%}">Contact Us</a> <!--Add the url-->
-                </div>
-                <div class="navbar-item">
-                    <form class="form-inline" action="#"> <!--Add action-->
-                        <div class="px-2">
-                            <label for="username"> Username: </label>
-                            <input class="form-control" type="text" name="username" placeholder="Enter Username" required>
-                        </div>
-                        <div class="px-2">
-                            <label for="password"> Password: </label>
-                            <input class="form-control" type="password" name="password" placeholder="Enter Password" required>
-                        </div>
-                        <div class="pt-4">
-                            <input type="submit" class="btn btn-success">
-                        </div>
-                    </form>
-                </div>
-                <div class="navbar-item">
-                    <a class="nav-link bg-primary text-white" href="#">Sign Up</a> <!--Add url link-->
-                </div>
+    <nav class="navbar navbar-expand-lg bg-light">
+        <a href="#" class="navbar-brand mx-5 px-4"><h3>Best Cars Dealership</h3></a>
+        <div class="navbar-nav justify-content-between">
+            <div class="nav-item mx-5 px-3">
+                <a class="nav-link" href="{% url 'djangoapp:about_us'%}">About Us</a>
             </div>
-        </nav>
+            <div class="nav-item mx-5 px-3">
+                <a class="nav-link" href="{%url 'djangoapp:contact_us'%}">Contact Us</a>
+            </div>
+            <div class="nav-item mx-5 px-4">
+                {%if user.is_authenticated%}
+                    <div class="dropdown">
+                        <button class="btn btn-light dropdown-toggle" data-toggle="dropdown">Welcome, {{user.first_name}}</button>
+                        <div class="dropdown-menu">
+                            <h4 class="dropdown-header">Username:</h4>
+                            <span class="dropdown-item-text">{{user.username}}</span>
+                            <h4 class="dropdown-header">Name:</h4>
+                            <span class="dropdown-item-text">{{user.first_name}} {{user.last_name}}</span>
+                            <div class="dropdown-divider"></div>
+                            <a class="btn btn-outline-danger btn-block" href="{%url 'djangoapp:logout'%}">Logout</a>   
+                        </div>
+                    </div>
+                {%else%}
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#LoginForm">Login</button>
+                    <div class="modal fade" id="LoginForm">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h3 class="modal-title">Login</h3>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="{%url 'djangoapp:login'%}" method="POST">
+                                        {%csrf_token%}
+                                        <div class="form-group">
+                                            <label for="username">Username:</label>
+                                            <input type="text" class="form-control" placeholder="Enter Username" name="username"
+                                            required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="password">Password:</label>
+                                            <input type="password" class="form-control" placeholder="Enter Password" name="password"
+                                            required>
+                                        </div>
+                                        <button type="submit" class="btn btn-success btn-block">Login</button>
+                                    </form>
+                                    <hr>
+                                    <h5 class='text-center'>or</h5>
+                                    <a class="btn btn-danger btn-block" href="{%url 'djangoapp:register'%}">Sign Up</a>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-outline-warning" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {%endif%}
+            </div>
+        </div>
+    </nav>
     <!--Add a dealer table here -->
 
     </body>

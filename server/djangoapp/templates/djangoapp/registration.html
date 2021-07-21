@@ -6,6 +6,40 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
     <body>
+        <div class="nav justify-content-center bg-light">
+            <div class="nav-item">
+                <h1 class="text-center font-weight-bolder text-primary"><a href="{%url 'djangoapp:index'%}">Best Cars Dealership</a></h1>
+            </div>
+        </div>
+        <div class="container">
+            <br>
+            <h1>Sign Up</h1>
+            <hr>
+            <form action="{%url 'djangoapp:register'%}" method="POST">
+                {%csrf_token%}
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" name="username" placeholder="Enter Username:" required>
+                </div>
+                <div class="form-group">
+                    <label for="first_name">First Name</label>
+                    <input type="text" class="form-control" name="first_name" placeholder="Enter First Name:" required>
+                </div>
+                <div class="form-group">
+                    <label for="last_name">Last Name</label>
+                    <input type="text" class="form-control" name="last_name" placeholder="Enter Last Name:" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email ID</label>
+                    <input type="email" class="form-control" name="email" placeholder="Enter Email ID:" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" name="password" placeholder="Enter Password:" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Sign Up</button>
+            </form>
+        </div>
     <!--Add a registration form here -->
     </body>
 </html>
