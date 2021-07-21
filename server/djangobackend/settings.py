@@ -27,7 +27,7 @@ DEBUG = True
 
 APPEND_SLASH = True
 
-ALLOWED_HOSTS = ["localhost", "dev-pv.eu-gb.mybluemix.net"]
+ALLOWED_HOSTS = ["localhost", "dev-pvatsa.eu-gb.mybluemix.net"]
 
 
 # Application definition
