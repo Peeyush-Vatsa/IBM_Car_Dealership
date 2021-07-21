@@ -1,11 +1,11 @@
   applications:
   - name: BestCarsDealership-3f
     routes:
-      - route: CD1028-3bd-dev-pv.eu-gb.mybluemix.net
+      - route: CD1028-3bd-351-dev-pvatsa18.eu-gb.mybluemix.net
     memory: 128M
     buildpack: python_buildpack
   - name: BestCarsDealership-3f-nginx
     routes:
-      - route: CD1028-3bd-dev-pv.eu-gb.mybluemix.net
+      - route: CD1028-3bd-351-dev-pvatsa18.eu-gb.mybluemix.net
     memory: 128M
     buildpack: staticfile_buildpack
