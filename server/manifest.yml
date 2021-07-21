@@ -1,11 +1,11 @@
   applications:
-  - name: dealerreiew
+  - name: BestCarsDealership-3f
     routes:
-      - route: host.domain
+      - route: dev-pv.eu-gb.mybluemix.net
     memory: 128M
     buildpack: python_buildpack
-  - name: dealerreiew-nginx
+  - name: BestCarsDealership-3f-nginx
     routes:
-      - route: host.domain/static
+      - route: dev-pv.eu-gb.mybluemix.net
     memory: 128M
     buildpack: staticfile_buildpack
