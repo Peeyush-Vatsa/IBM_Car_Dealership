@@ -73,7 +73,7 @@ def get_review_from_cf(url, **kwargs):
     return results
 
 def get_sentiment(review):
-    auth = IAMAuthenticator('UhXf6k8wOefKH0pkrY-hQr-3AUEOwmCDYlYazxdJ8MBJ')
+    auth = IAMAuthenticator('r4oJiBpk5YIoNh8cDqg6PA1BKdmL6tcE03f15fGkW7wA')
     natural_language_understanding = NaturalLanguageUnderstandingV1(version='2021-03-05', authenticator=auth)
     natural_language_understanding.set_service_url("https://api.eu-gb.natural-language-understanding.watson.cloud.ibm.com")
     sentiment_raw_json = natural_language_understanding.analyze(text=review, features=Features(sentiment=SentimentOptions(document=True))).get_result()
